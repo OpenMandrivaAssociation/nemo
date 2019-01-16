@@ -8,7 +8,7 @@
 
 Name:           nemo
 Summary:        File manager for Cinnamon
-Version:        3.2.2
+Version:        4.0.6
 Release:        1
 License:        GPLv2+ and LGPLv2+
 Group:          File tools
@@ -99,20 +99,17 @@ GObject Introspection interface description for %{name}.
 %prep
 %setup -q
 %apply_patches
-#setup -q -n linuxmint-%{name}-%{_internal_version}
-NOCONFIGURE=1 ./autogen.sh
 
 %build
-%configure2_5x --disable-more-warnings \
-           --disable-update-mimedb \
-           --disable-schemas-compile \
-           --disable-static
-
-sed -i -e 's/ -shared / -Wl,-O1,--as-needed\0 /g' libtool
-%make V=1
+#configure2_5x --disable-more-warnings \
+#          --disable-update-mimedb \
+#          --disable-schemas-compile \
+#          --disable-static
+%meson
+%meson_build
 
 %install
-%makeinstall_std
+%meson_install
 
 desktop-file-install --delete-original       \
   --dir $RPM_BUILD_ROOT%{_datadir}/applications             \
@@ -144,11 +141,11 @@ ln -s %{_datadir}/themes/Adwaita/index.theme $RPM_BUILD_ROOT%{_datadir}/themes/A
 %{_datadir}/mime/packages/nemo.xml
 %{_bindir}/*
 %{_datadir}/icons/hicolor/*/apps/nemo.png
-%{_datadir}/icons/hicolor/*/actions/nemo-eject.png
+%{_datadir}/icons/hicolor/*/actions/*.png
 %{_datadir}/icons/hicolor/scalable/*/*.svg
 %{_datadir}/icons/hicolor/48x48/status/progress-*.png
-%{_datadir}/dbus-1/services/org.Nemo.service
-%{_datadir}/dbus-1/services/org.nemo.freedesktop.FileManager1.service
+%{_datadir}/dbus-1/services/nemo.service
+%{_datadir}/dbus-1/services/nemo.FileManager1.service
 %{_mandir}/man1/nemo-connect-server.1.*
 %{_mandir}/man1/nemo.1.*
 %{_libexecdir}/nemo-convert-metadata
