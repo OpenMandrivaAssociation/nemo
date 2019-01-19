@@ -43,7 +43,7 @@ BuildRequires:  pkgconfig(pygobject-3.0)
 BuildRequires:  pkgconfig(cinnamon-desktop)
 BuildRequires:  pkgconfig(sm)
 BuildRequires:  pkgconfig(x11)
-
+BuildRequires:  meson
 # needed for theme subpackage
 BuildRequires:  gnome-themes-standard
 BuildRequires:  python-gi
