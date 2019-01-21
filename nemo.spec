@@ -14,8 +14,6 @@ License:        GPLv2+ and LGPLv2+
 Group:          File tools
 URL:            https://github.com/linuxmint/nemo
 Source0:        http://leigh123linux.fedorapeople.org/pub/nemo/source/nemo-%{version}.tar.gz
-#SourceGet0: https://github.com/linuxmint/nemo/archive/%{version}.tar.gz
-##SourceGet0: https://github.com/linuxmint/nemo/tarball/%{_internal_version}
 Source100:	nemo.rpmlintrc
 
 Requires:       gvfs
