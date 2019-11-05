@@ -8,12 +8,12 @@
 
 Name:           nemo
 Summary:        File manager for Cinnamon
-Version:        4.0.6
+Version:        4.2.3
 Release:        1
 License:        GPLv2+ and LGPLv2+
 Group:          File tools
 URL:            https://github.com/linuxmint/nemo
-Source0:        http://leigh123linux.fedorapeople.org/pub/nemo/source/nemo-%{version}.tar.gz
+Source0:        https://github.com/linuxmint/nemo/archive/%{version}/%{name}-%{version}.tar.gz
 Source100:	nemo.rpmlintrc
 
 Requires:       gvfs
@@ -97,10 +97,10 @@ GObject Introspection interface description for %{name}.
 
 %prep
 %setup -q
-%apply_patches
+%autopatch -p1
 
 %build
-#configure2_5x --disable-more-warnings \
+#configure --disable-more-warnings \
 #          --disable-update-mimedb \
 #          --disable-schemas-compile \
 #          --disable-static
