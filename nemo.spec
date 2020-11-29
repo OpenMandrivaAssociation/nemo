@@ -8,7 +8,7 @@
 
 Name:           nemo
 Summary:        File manager for Cinnamon
-Version:        4.6.5
+Version:        4.8.0
 Release:        1
 License:        GPLv2+ and LGPLv2+
 Group:          File tools
@@ -100,10 +100,7 @@ GObject Introspection interface description for %{name}.
 %autopatch -p1
 
 %build
-#configure --disable-more-warnings \
-#          --disable-update-mimedb \
-#          --disable-schemas-compile \
-#          --disable-static
+
 %meson
 %meson_build
 
