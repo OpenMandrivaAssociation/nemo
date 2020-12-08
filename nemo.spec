@@ -8,16 +8,13 @@
 
 Name:           nemo
 Summary:        File manager for Cinnamon
-Version:        4.8.0
+Version:        4.8.2
 Release:        2
 License:        GPLv2+ and LGPLv2+
 Group:          File tools
 URL:            https://github.com/linuxmint/nemo
 Source0:        https://github.com/linuxmint/nemo/archive/%{version}/%{name}-%{version}.tar.gz
 Source100:	nemo.rpmlintrc
-
-# Upstream https://github.com/linuxmint/nemo/issues/2579
-Patch0:         master...mtwebster:favorites-async-job.patch
 
 Requires:       gvfs
 Requires:       adwaita-icon-theme
