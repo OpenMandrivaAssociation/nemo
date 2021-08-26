@@ -33,6 +33,7 @@ BuildRequires:  pkgconfig(gtk+-3.0)
 BuildRequires:  desktop-file-utils
 BuildRequires:  pkgconfig(gtk-doc)
 BuildRequires:  pkgconfig(libexif)
+BuildRequires:  pkgconfig(libgsf-1)
 BuildRequires:  pkgconfig(libnotify)
 BuildRequires:  pkgconfig(libselinux)
 BuildRequires:  pkgconfig(libxml-2.0)
