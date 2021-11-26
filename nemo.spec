@@ -151,7 +151,7 @@ ln -s %{_datadir}/themes/Adwaita/index.theme $RPM_BUILD_ROOT%{_datadir}/themes/A
 %dir %{_libdir}/nemo/extensions-3.0/
 %{_datadir}/polkit-1/actions/org.nemo.root.policy
 %{_datadir}/gtksourceview-?.0/language-specs/nemo_action.lang
-%{_datadir}/gtksourceview
+%{_datadir}/gtksourceview*
 %{_mandir}/man1/nemo-desktop.1.*
 
 
