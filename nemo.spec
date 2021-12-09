@@ -8,7 +8,7 @@
 
 Name:           nemo
 Summary:        File manager for Cinnamon
-Version:        5.2.0
+Version:        5.2.1
 Release:        1
 License:        GPLv2+ and LGPLv2+
 Group:          File tools
@@ -52,6 +52,8 @@ BuildRequires:  python-gi
 # the main binary links against libnemo-extension.so
 # don't depend on soname, rather on exact version
 Requires:       %{libnemo_extension} = %{version}-%{release}
+# For supporting Ms .xls and .xlsx files.
+Recommends:       python3dist(xlrd)
 
 %description
 Nemo is the file manager and graphical shell for the Cinnamon desktop
