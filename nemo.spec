@@ -8,7 +8,7 @@
 
 Name:           nemo
 Summary:        File manager for Cinnamon
-Version:        5.2.2
+Version:        5.2.3
 Release:        1
 License:        GPLv2+ and LGPLv2+
 Group:          File tools
@@ -112,7 +112,6 @@ GObject Introspection interface description for %{name}.
 
 desktop-file-install --delete-original       \
   --dir $RPM_BUILD_ROOT%{_datadir}/applications             \
-  --add-only-show-in GNOME                                  \
   $RPM_BUILD_ROOT%{_datadir}/applications/*
 
 # create extensions directoy
