@@ -8,7 +8,7 @@
 
 Name:           nemo
 Summary:        File manager for Cinnamon
-Version:        5.2.4
+Version:        5.4.3
 Release:        1
 License:        GPLv2+ and LGPLv2+
 Group:          File tools
@@ -151,7 +151,7 @@ ln -s %{_datadir}/themes/Adwaita/index.theme $RPM_BUILD_ROOT%{_datadir}/themes/A
 %{_datadir}/glib-2.0/schemas/*
 %dir %{_libdir}/nemo/extensions-3.0/
 %{_datadir}/polkit-1/actions/org.nemo.root.policy
-%{_datadir}/gtksourceview-?.0/language-specs/nemo_action.lang
+#{_datadir}/gtksourceview-?.0/language-specs/nemo_action.lang
 %{_datadir}/gtksourceview*
 %{_mandir}/man1/nemo-desktop.1.*
 
