@@ -8,7 +8,7 @@
 
 Name:           nemo
 Summary:        File manager for Cinnamon
-Version:        5.6.0
+Version:        5.6.1
 Release:        1
 License:        GPLv2+ and LGPLv2+
 Group:          File tools
