@@ -8,7 +8,7 @@
 
 Name:           nemo
 Summary:        File manager for Cinnamon
-Version:        5.8.5
+Version:        6.0.0
 Release:        1
 License:        GPLv2+ and LGPLv2+
 Group:          File tools
@@ -30,6 +30,7 @@ BuildRequires:  pkgconfig(gail-3.0)
 BuildRequires:  pkgconfig(glib-2.0)
 BuildRequires:  pkgconfig(gobject-introspection-1.0)
 BuildRequires:  pkgconfig(gtk+-3.0)
+BuildRequires:  pkgconfig(gtk+-wayland-3.0)
 BuildRequires:  desktop-file-utils
 BuildRequires:  pkgconfig(gtk-doc)
 BuildRequires:  pkgconfig(libexif)
