@@ -142,7 +142,7 @@ ln -s %{_datadir}/themes/Adwaita/index.theme $RPM_BUILD_ROOT%{_datadir}/themes/A
 %{_datadir}/icons/hicolor/*/apps/nemo.png
 %{_datadir}/icons/hicolor/*/actions/*.png
 %{_datadir}/icons/hicolor/scalable/*/*.svg
-%{_datadir}/icons/hicolor/48x48/status/progress-*.png
+#{_datadir}/icons/hicolor/48x48/status/progress-*.png
 %{_datadir}/dbus-1/services/nemo.service
 %{_datadir}/dbus-1/services/nemo.FileManager1.service
 %{_mandir}/man1/nemo-connect-server.1.*
