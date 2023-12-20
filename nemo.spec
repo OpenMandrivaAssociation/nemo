@@ -147,7 +147,7 @@ ln -s %{_datadir}/themes/Adwaita/index.theme $RPM_BUILD_ROOT%{_datadir}/themes/A
 %{_datadir}/dbus-1/services/nemo.FileManager1.service
 %{_mandir}/man1/nemo-connect-server.1.*
 %{_mandir}/man1/nemo.1.*
-%{_libexecdir}/nemo-convert-metadata
+#{_libexecdir}/nemo-convert-metadata
 %{_libexecdir}/nemo-extensions-list
 %{_datadir}/glib-2.0/schemas/*
 %dir %{_libdir}/nemo/extensions-3.0/
