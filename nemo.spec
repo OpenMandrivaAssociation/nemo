@@ -9,17 +9,12 @@
 Name:           nemo
 Summary:        File manager for Cinnamon
 Version:        6.4.5
-Release:        1
+Release:        2
 License:        GPLv2+ and LGPLv2+
 Group:          File tools
 URL:            https://github.com/linuxmint/nemo
 Source0:        https://github.com/linuxmint/nemo/archive/%{version}/%{name}-%{version}.tar.gz
 Source100:	nemo.rpmlintrc
-
-Requires:       gvfs
-Requires:       adwaita-icon-theme
-Requires:       cinnamon-desktop
-Requires:       cinnamon-translations
 
 BuildRequires:  gnome-common
 BuildRequires:  intltool
@@ -46,11 +41,17 @@ BuildRequires:  pkgconfig(sm)
 BuildRequires:  pkgconfig(x11)
 BuildRequires:	pkgconfig(xapp)
 BuildRequires:  meson
+BuildRequires:  mold
 # needed for theme subpackage
 BuildRequires:  gnome-themes-standard
 BuildRequires:  python-gi
+BuildRequires:  python-polib
 
-
+Requires:       gvfs
+Requires:       adwaita-icon-theme
+Requires:       cinnamon-desktop
+Requires:       cinnamon-translations
+Rrquires:       xapp
 # the main binary links against libnemo-extension.so
 # don't depend on soname, rather on exact version
 Requires:       %{libnemo_extension} = %{version}-%{release}
@@ -101,11 +102,12 @@ Requires:       %{libnemo_extension} = %{version}-%{release}
 GObject Introspection interface description for %{name}.
 
 %prep
-%setup -q
-%autopatch -p1
+%autosetup -p1
 
 %build
-
+%global optflags %{optflags} -fuse-ld=mold
+export CC=gcc
+export CXX=g++
 %meson
 %meson_build
 
