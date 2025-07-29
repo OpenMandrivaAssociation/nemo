@@ -51,7 +51,7 @@ Requires:       gvfs
 Requires:       adwaita-icon-theme
 Requires:       cinnamon-desktop
 Requires:       cinnamon-translations
-Rrquires:       xapp
+Requires:       xapp
 # the main binary links against libnemo-extension.so
 # don't depend on soname, rather on exact version
 Requires:       %{libnemo_extension} = %{version}-%{release}
