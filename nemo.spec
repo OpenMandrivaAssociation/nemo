@@ -8,13 +8,15 @@
 
 Name:           nemo
 Summary:        File manager for Cinnamon
-Version:        6.4.5
-Release:        2
+Version:        6.6.2
+Release:        1
 License:        GPLv2+ and LGPLv2+
 Group:          File tools
 URL:            https://github.com/linuxmint/nemo
 Source0:        https://github.com/linuxmint/nemo/archive/%{version}/%{name}-%{version}.tar.gz
 Source100:	nemo.rpmlintrc
+
+BuildSystem:    meson
 
 BuildRequires:  gnome-common
 BuildRequires:  intltool
@@ -40,7 +42,6 @@ BuildRequires:  pkgconfig(cinnamon-desktop)
 BuildRequires:  pkgconfig(sm)
 BuildRequires:  pkgconfig(x11)
 BuildRequires:	pkgconfig(xapp)
-BuildRequires:  meson
 BuildRequires:  mold
 # needed for theme subpackage
 BuildRequires:  gnome-themes-standard
@@ -101,39 +102,34 @@ Requires:       %{libnemo_extension} = %{version}-%{release}
 %description -n %{gir_name}
 GObject Introspection interface description for %{name}.
 
-%prep
-%autosetup -p1
 
-%build
+%conf -p
 %global optflags %{optflags} -fuse-ld=mold
 export CC=gcc
 export CXX=g++
-%meson
-%meson_build
 
-%install
-%meson_install
 
+%install -a
 desktop-file-install --delete-original       \
-  --dir $RPM_BUILD_ROOT%{_datadir}/applications             \
-  $RPM_BUILD_ROOT%{_datadir}/applications/*
+  --dir %{buildroot}/%{_datadir}/applications             \
+  %{buildroot}/%{_datadir}/applications/*
 
 # create extensions directoy
-mkdir -p $RPM_BUILD_ROOT%{_libdir}/nemo/extensions-3.0/
+mkdir -p %{buildroot}/%{_libdir}/nemo/extensions-3.0/
 
-rm -f $RPM_BUILD_ROOT%{_libdir}/*.la
-rm -f $RPM_BUILD_ROOT%{_libdir}/*.a
-rm -f $RPM_BUILD_ROOT%{_libdir}/nemo/extensions-3.0/*.la
-rm -f $RPM_BUILD_ROOT%{_datadir}/icons/hicolor/icon-theme.cache
-rm -f $RPM_BUILD_ROOT%{_datadir}/icons/hicolor/.icon-theme.cache
+rm -f %{buildroot}/%{_libdir}/*.la
+rm -f %{buildroot}/%{_libdir}/*.a
+rm -f %{buildroot}/%{_libdir}/nemo/extensions-3.0/*.la
+rm -f %{buildroot}/%{_datadir}/icons/hicolor/icon-theme.cache
+rm -f %{buildroot}/%{_datadir}/icons/hicolor/.icon-theme.cache
 
 # theme
-mkdir -p $RPM_BUILD_ROOT%{_datadir}/themes/Adwaita-Nemo/gtk-3.0/apps
-ln -s %{_datadir}/themes/Adwaita/backgrounds $RPM_BUILD_ROOT%{_datadir}/themes/Adwaita-Nemo/
-ln -s %{_datadir}/themes/Adwaita/gtk-2.0 $RPM_BUILD_ROOT%{_datadir}/themes/Adwaita-Nemo/
-ln -s %{_datadir}/themes/Adwaita/gtk-3.0/{gtk.gresource,settings.ini} $RPM_BUILD_ROOT%{_datadir}/themes/Adwaita-Nemo/gtk-3.0/
-ln -s %{_datadir}/themes/Adwaita/metacity-1 $RPM_BUILD_ROOT%{_datadir}/themes/Adwaita-Nemo/
-ln -s %{_datadir}/themes/Adwaita/index.theme $RPM_BUILD_ROOT%{_datadir}/themes/Adwaita-Nemo/index.theme
+mkdir -p %{buildroot}/%{_datadir}/themes/Adwaita-Nemo/gtk-3.0/apps
+ln -s %{_datadir}/themes/Adwaita/backgrounds %{buildroot}/%{_datadir}/themes/Adwaita-Nemo/
+ln -s %{_datadir}/themes/Adwaita/gtk-2.0 %{buildroot}/%{_datadir}/themes/Adwaita-Nemo/
+ln -s %{_datadir}/themes/Adwaita/gtk-3.0/{gtk.gresource,settings.ini} %{buildroot}/%{_datadir}/themes/Adwaita-Nemo/gtk-3.0/
+ln -s %{_datadir}/themes/Adwaita/metacity-1 %{buildroot}/%{_datadir}/themes/Adwaita-Nemo/
+ln -s %{_datadir}/themes/Adwaita/index.theme %{buildroot}/%{_datadir}/themes/Adwaita-Nemo/index.theme
 
 #find_lang %name
 
