@@ -8,8 +8,8 @@
 
 Name:           nemo
 Summary:        File manager for Cinnamon
-Version:        6.6.4
-Release:        2
+Version:        6.8.3
+Release:        1
 License:        GPLv2+ and LGPLv2+
 Group:          File tools
 URL:            https://github.com/linuxmint/nemo
