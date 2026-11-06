@@ -43,7 +43,14 @@ BuildRequires:  pkgconfig(sm)
 BuildRequires:  pkgconfig(x11)
 BuildRequires:	pkgconfig(xapp)
 BuildRequires:	pkgconfig(gstreamer-1.0)
+BuildRequires:  pkgconfig(atk)
+BuildRequires:  pkgconfig(gstreamer-pbutils-1.0)
+BuildRequires:  pkgconfig(gtk-layer-shell-0)
+BuildRequires:  pkgconfig(wayland-client)
 BuildRequires:  mold
+BuildRequires:  meson
+BuildRequires:  python
+BuildRequires:  itstool
 # needed for theme subpackage
 BuildRequires:  gnome-themes-standard
 BuildRequires:  python-gi
