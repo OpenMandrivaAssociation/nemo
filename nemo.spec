@@ -42,6 +42,7 @@ BuildRequires:  pkgconfig(cinnamon-desktop)
 BuildRequires:  pkgconfig(sm)
 BuildRequires:  pkgconfig(x11)
 BuildRequires:	pkgconfig(xapp)
+BuildRequires:	pkgconfig(gstreamer-1.0)
 BuildRequires:  mold
 # needed for theme subpackage
 BuildRequires:  gnome-themes-standard
