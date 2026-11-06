@@ -53,6 +53,8 @@ Requires:       adwaita-icon-theme
 Requires:       cinnamon-desktop
 Requires:       cinnamon-translations
 Requires:       xapp
+Requires:       gstreamer1.0-plugins-base
+Requires:       gstreamer1.0-plugins-good
 # the main binary links against libnemo-extension.so
 # don't depend on soname, rather on exact version
 Requires:       %{libnemo_extension} = %{version}-%{release}
